@@ -15,10 +15,10 @@ pub struct Game {
     white: Pieces, // stores information about the white player's pieces
     black: Pieces, // stores information about the black player's pieces
 
-    pub board: Board,
+    board: Board,
     phase: Phase,
 
-    pub current: Color // the player who should play on the current turn. Changes to the other color every turn
+    current: Color // the player who should play on the current turn. Changes to the other color every turn
 }
 impl Game {
     pub fn new() -> Self {
@@ -49,7 +49,7 @@ impl Game { // game actions
     // Requests the coordinates of a single position, reads them from the standard input and calls Board.place() with the color of the current player and said position.
     // Handles that function's errors and prints an approriate message if there is one.
     // If the placement is successful, calls the Pieces.place() function of the current player and returns the position.
-    pub fn place_piece<R: BufRead>(&mut self, mut input: R) -> String {
+    fn place_piece<R: BufRead>(&mut self, mut input: R) -> String {
         println!("{} player, PLACE your piece:", self.current);
 
         loop {
@@ -80,7 +80,7 @@ impl Game { // game actions
     // and an appropriate boolean value for the "flying".
     // Handles that function's errors and prints an approriate message if there is one.
     // If the movement is successful, calls the Pieces.move() function of the current player and returns the second position.
-    pub fn move_piece<R: BufRead>(&mut self, mut input: R) -> String {
+    fn move_piece<R: BufRead>(&mut self, mut input: R) -> String {
         let flying = match self.current {
             Color::White => self.white.placed <= 3,
             Color::Black => self.black.placed <= 3
@@ -99,7 +99,6 @@ impl Game { // game actions
                     let trimmed_positions = positions.trim_end();
                     let start = &trimmed_positions[..2];
                     let end = &trimmed_positions[2..];
-
 
 
                     match self.board.move_piece(self.current, start, end, flying) {
