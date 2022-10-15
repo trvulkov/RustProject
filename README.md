@@ -1,4 +1,4 @@
-# University Project for the Rust elective course in FMI, 1st Semester 2020/2021
+# University Project for the Rust elective course in FMI (Sofia University), 1st Semester 2020/2021
 
 Nine men's morris, played through the command-line interface.
 
