@@ -1,4 +1,5 @@
-# RustProject
+# University Project for the Rust elective course in FMI, 1st Semester 2020
+
 Nine men's morris, played through the command-line interface.
 
 More detail on rules: https://en.wikipedia.org/wiki/Nine_men%27s_morris
